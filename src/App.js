@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 // Components
@@ -11,9 +11,24 @@ import ResetButton from "./components/ResetButton/resetButton";
 function App() {
   const [sessionLength, setSessionLength] = useState(25);
   const [breakLength, setBreakLength] = useState(5);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    let interval = null;
+    if (isRunning === true) {
+      interval = setInterval(() => {
+        console.log("interval");
+        setSessionLength(sessionLength - 1);
+      }, 1000);
+    } else if (interval !== null) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, sessionLength]);
 
   function startStop() {
     console.log("toggleRunning");
+    setIsRunning(!isRunning);
   }
 
   function decrementSession() {
@@ -54,6 +69,7 @@ function App() {
 
   function reset() {
     console.log("resetSession");
+    setIsRunning(false);
     setSessionLength(25);
     setBreakLength(5);
   }
