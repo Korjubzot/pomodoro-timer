@@ -9,7 +9,6 @@ import BreakLengthControl from "./components/BreakLengthControl/breakLengthContr
 import ResetButton from "./components/ResetButton/resetButton";
 
 function App() {
-  const [time, setTime] = useState(2500);
   const [sessionLength, setSessionLength] = useState(25);
   const [breakLength, setBreakLength] = useState(5);
 
@@ -18,29 +17,51 @@ function App() {
   }
 
   function decrementSession() {
-    console.log("decrementSession");
+    if (sessionLength > 1) {
+      setSessionLength(sessionLength - 1);
+      console.log("decrementSession");
+    } else {
+      console.log("minimum session length reached");
+    }
   }
 
   function incrementSession() {
-    console.log("incrementSession");
+    if (sessionLength < 60) {
+      setSessionLength(sessionLength + 1);
+      console.log("incrementSession");
+    } else {
+      console.log("maximum session length reached");
+    }
   }
 
   function decrementBreak() {
-    console.log("decrementBreak");
+    if (breakLength > 1) {
+      setBreakLength(breakLength - 1);
+      console.log("decrementBreak");
+    } else {
+      console.log("minimum break length reached");
+    }
   }
 
   function incrementBreak() {
-    console.log("incrementBreak");
+    if (breakLength < 60) {
+      setBreakLength(breakLength + 1);
+      console.log("incrementBreak");
+    } else {
+      console.log("maximum break length reached");
+    }
   }
 
   function reset() {
     console.log("resetSession");
+    setSessionLength(25);
+    setBreakLength(5);
   }
 
   return (
     <div className="App">
       <h1>Pomodoro</h1>
-      <TimerDisplay time={time} />
+      <TimerDisplay time={sessionLength} break={breakLength} />
       <StartStopButton onClick={startStop} />
       <SessionLengthControl
         decrementSession={decrementSession}
