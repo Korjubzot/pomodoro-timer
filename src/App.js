@@ -11,13 +11,13 @@ import ResetButton from "./components/ResetButton/resetButton";
 // Constants
 const SESSION_LENGTH = 25 * 60;
 const BREAK_LENGTH = 5 * 60;
-const MINUTE = 60;
 
 function App() {
   const [sessionLength, setSessionLength] = useState(SESSION_LENGTH);
   const [breakLength, setBreakLength] = useState(BREAK_LENGTH);
   const [isRunning, setIsRunning] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
+  const [bgColor, setBgColor] = useState("#BA4949");
 
   useEffect(() => {
     let interval = null;
@@ -33,10 +33,12 @@ function App() {
     if (sessionLength === 0 && !isBreak) {
       clearInterval(interval);
       console.log("Session ended");
+      changeBgColor();
       setIsBreak(true);
     } else if (breakLength === 0 && isBreak) {
       clearInterval(interval);
       console.log("Break ended");
+      changeBgColor();
       setIsBreak(false);
       setSessionLength(SESSION_LENGTH);
       setBreakLength(BREAK_LENGTH);
@@ -96,8 +98,16 @@ function App() {
     setBreakLength(BREAK_LENGTH);
   }
 
+  function changeBgColor() {
+    setBgColor(
+      (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
+      // when page started or session running, change to red (BA4949)
+      // when break running, change to blue (38858A)
+    );
+  }
+
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: bgColor }}>
       <h1>Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
@@ -112,6 +122,7 @@ function App() {
         incrementBreak={incrementBreak}
       />
       <ResetButton reset={reset} />
+      <button onClick={changeBgColor}>Change background color</button>
     </div>
   );
 }

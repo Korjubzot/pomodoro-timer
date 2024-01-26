@@ -1,22 +1,23 @@
 import React from "react";
+import "./timerDisplay.css";
 
 const MINUTE = 60;
 
 function TimerDisplay({ sessionLength, breakLength }) {
   return (
-    <div>
-      <div>
-        Session Length: {Math.floor(sessionLength / MINUTE)}:
+    <div className="timer">
+      <h1>
+        Session {Math.floor(sessionLength / MINUTE)}:
         {sessionLength % MINUTE < 10
           ? "0" + (sessionLength % MINUTE)
           : sessionLength % MINUTE}
-      </div>
-      <div>
-        Break Length: {Math.floor(breakLength / MINUTE)}:
+      </h1>
+      <h1>
+        Break {Math.floor(breakLength / MINUTE)}:
         {breakLength % MINUTE < 10
           ? "0" + (breakLength % MINUTE)
           : breakLength % MINUTE}
-      </div>
+      </h1>
     </div>
   );
 }
