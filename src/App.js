@@ -20,8 +20,13 @@ function App() {
         console.log("interval");
         setSessionLength(sessionLength - 1);
       }, 1000);
-    } else if (interval !== null) {
+    }
+    if (sessionLength === 0) {
       clearInterval(interval);
+      console.log("Session ended");
+    } else if (interval === null) {
+      clearInterval(interval);
+      console.log("Timer stopped");
     }
     return () => clearInterval(interval);
   }, [isRunning, sessionLength]);
@@ -32,39 +37,36 @@ function App() {
   }
 
   function decrementSession() {
-    if (sessionLength > 1) {
-      setSessionLength(sessionLength - 1);
-      console.log("decrementSession");
-    } else {
-      console.log("minimum session length reached");
-    }
+    setSessionLength((prevSessionLength) => Math.max(prevSessionLength - 1, 1));
   }
 
   function incrementSession() {
-    if (sessionLength < 60) {
-      setSessionLength(sessionLength + 1);
-      console.log("incrementSession");
-    } else {
-      console.log("maximum session length reached");
-    }
+    setSessionLength((prevSessionLength) => {
+      if (prevSessionLength < 60) {
+        console.log("session incremented");
+        return prevSessionLength + 1;
+      } else {
+        console.log("maximum session length reached");
+        return prevSessionLength;
+      }
+    });
   }
 
   function decrementBreak() {
-    if (breakLength > 1) {
-      setBreakLength(breakLength - 1);
-      console.log("decrementBreak");
-    } else {
-      console.log("minimum break length reached");
-    }
+    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 1, 1));
+    console.log("decrementBreak");
   }
 
   function incrementBreak() {
-    if (breakLength < 60) {
-      setBreakLength(breakLength + 1);
-      console.log("incrementBreak");
-    } else {
-      console.log("maximum break length reached");
-    }
+    setBreakLength((prevBreakLength) => {
+      if (prevBreakLength < 60) {
+        console.log("break incremented");
+        return prevBreakLength + 1;
+      } else {
+        console.log("maximum break length reached");
+        return prevBreakLength;
+      }
+    });
   }
 
   function reset() {
