@@ -3,9 +3,8 @@ import React from "react";
 function BreakLengthControl(props) {
   return (
     <div>
-      <button onClick={props.decrementBreak}>-</button>
-      <span>{props.breakLength}</span>
-      <button onClick={props.incrementBreak}>+</button>
+      <button onClick={props.decrementBreak}>-1 Minute (Break)</button>
+      <button onClick={props.incrementBreak}>+1 Minute (Break)</button>
     </div>
   );
 }

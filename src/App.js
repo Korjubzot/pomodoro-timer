@@ -53,15 +53,17 @@ function App() {
   }
 
   function decrementSession() {
-    setSessionLength((prevSessionLength) => Math.max(prevSessionLength - 1, 0));
+    setSessionLength((prevSessionLength) =>
+      Math.max(prevSessionLength - 60, 0)
+    );
     console.log("decrement session");
   }
 
   function incrementSession() {
     setSessionLength((prevSessionLength) => {
-      if (prevSessionLength < 60) {
+      if (prevSessionLength < 15000) {
         console.log("session incremented");
-        return prevSessionLength + 1;
+        return prevSessionLength + 60;
       } else {
         console.log("maximum session length reached");
         return prevSessionLength;
@@ -70,15 +72,15 @@ function App() {
   }
 
   function decrementBreak() {
-    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 1, 0));
+    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 60, 0));
     console.log("decrementBreak");
   }
 
   function incrementBreak() {
     setBreakLength((prevBreakLength) => {
-      if (prevBreakLength < 60) {
+      if (prevBreakLength < 15000) {
         console.log("break incremented");
-        return prevBreakLength + 1;
+        return prevBreakLength + 60;
       } else {
         console.log("maximum break length reached");
         return prevBreakLength;
@@ -98,7 +100,7 @@ function App() {
     <div className="App">
       <h1>Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
-      <StartStopButton onClick={startStop} />
+      <StartStopButton onClick={startStop} isRunning={isRunning} />
       <SessionLengthControl
         decrementSession={decrementSession}
         sessionLength={sessionLength}
