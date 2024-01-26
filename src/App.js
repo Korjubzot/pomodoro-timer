@@ -8,28 +8,44 @@ import SessionLengthControl from "./components/SessionLengthControl/sessionLengt
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
 
+// Constants
+const SESSION_LENGTH = 25 * 60;
+const BREAK_LENGTH = 5 * 60;
+const MINUTE = 60;
+
 function App() {
-  const [sessionLength, setSessionLength] = useState(25);
-  const [breakLength, setBreakLength] = useState(5);
+  const [sessionLength, setSessionLength] = useState(SESSION_LENGTH);
+  const [breakLength, setBreakLength] = useState(BREAK_LENGTH);
   const [isRunning, setIsRunning] = useState(false);
+  const [isBreak, setIsBreak] = useState(false);
 
   useEffect(() => {
     let interval = null;
-    if (isRunning === true) {
+    if (isRunning) {
       interval = setInterval(() => {
-        console.log("interval");
-        setSessionLength(sessionLength - 1);
+        if (!isBreak) {
+          setSessionLength((prevSessionLength) => prevSessionLength - 1);
+        } else {
+          setBreakLength((prevBreakLength) => prevBreakLength - 1);
+        }
       }, 1000);
     }
-    if (sessionLength === 0) {
+    if (sessionLength === 0 && !isBreak) {
       clearInterval(interval);
       console.log("Session ended");
-    } else if (interval === null) {
+      setIsBreak(true);
+    } else if (breakLength === 0 && isBreak) {
+      clearInterval(interval);
+      console.log("Break ended");
+      setIsBreak(false);
+      setSessionLength(SESSION_LENGTH);
+      setBreakLength(BREAK_LENGTH);
+    } else if (!isRunning) {
       clearInterval(interval);
       console.log("Timer stopped");
     }
     return () => clearInterval(interval);
-  }, [isRunning, sessionLength]);
+  }, [isRunning, sessionLength, breakLength, isBreak]);
 
   function startStop() {
     console.log("toggleRunning");
@@ -37,7 +53,8 @@ function App() {
   }
 
   function decrementSession() {
-    setSessionLength((prevSessionLength) => Math.max(prevSessionLength - 1, 1));
+    setSessionLength((prevSessionLength) => Math.max(prevSessionLength - 1, 0));
+    console.log("decrement session");
   }
 
   function incrementSession() {
@@ -53,7 +70,7 @@ function App() {
   }
 
   function decrementBreak() {
-    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 1, 1));
+    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 1, 0));
     console.log("decrementBreak");
   }
 
@@ -72,14 +89,15 @@ function App() {
   function reset() {
     console.log("resetSession");
     setIsRunning(false);
-    setSessionLength(25);
-    setBreakLength(5);
+    setIsBreak(false);
+    setSessionLength(SESSION_LENGTH);
+    setBreakLength(BREAK_LENGTH);
   }
 
   return (
     <div className="App">
-      <h1>Pomodoro</h1>
-      <TimerDisplay time={sessionLength} break={breakLength} />
+      <h1>Pomodoro Timer</h1>
+      <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} />
       <SessionLengthControl
         decrementSession={decrementSession}
