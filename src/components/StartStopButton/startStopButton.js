@@ -1,7 +1,18 @@
 import React from "react";
+import useSound from "use-sound";
+
+import boop from "../../assets/sounds/boop.mp3";
 
 function StartStopButton({ onClick, isRunning }) {
-  return <button onClick={onClick}> {isRunning ? "Stop" : "Start"} </button>;
+  const [play] = useSound(boop);
+
+  function handleClick() {
+    play();
+    onClick();
+  }
+  return (
+    <button onClick={handleClick}> {isRunning ? "Stop" : "Start"} </button>
+  );
 }
 
 export default StartStopButton;
