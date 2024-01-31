@@ -52,6 +52,7 @@ function App() {
   function startStop() {
     console.log("toggleRunning");
     setIsRunning(!isRunning);
+    changeBgColor();
   }
 
   function decrementSession() {
