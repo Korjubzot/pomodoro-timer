@@ -19,6 +19,8 @@ function App() {
   const [isBreak, setIsBreak] = useState(false);
   const [bgColor, setBgColor] = useState("#BA4949");
 
+  // TODO merge this into the seperate timer component
+
   useEffect(() => {
     let interval = null;
     if (isRunning) {
@@ -54,6 +56,9 @@ function App() {
     setIsRunning(!isRunning);
     changeBgColor();
   }
+
+  // TODO - refactor increment/decrement functions into one function
+  // TODO - add a clicking sound when buttons are clicked
 
   function decrementSession() {
     setSessionLength((prevSessionLength) =>
