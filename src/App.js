@@ -116,7 +116,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: bgColor }}>
-      <h1>Pomodoro Timer</h1>
+      <h1 className="text-7xl">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <SessionLengthControl

@@ -14,7 +14,10 @@ function StartStopButton({ onClick, isRunning }) {
   }
 
   return (
-    <button onClick={handleClick}> {isRunning ? "Stop" : "Start"} </button>
+    <button className="btn" onClick={handleClick}>
+      {" "}
+      {isRunning ? "Stop" : "Start"}{" "}
+    </button>
   );
 }
 
