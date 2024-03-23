@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // Components
 import TimerDisplay from "./components/TimerDisplay/timerDisplay";
@@ -130,6 +131,41 @@ function App() {
       />
       <ResetButton reset={reset} />
       {/* <button onClick={changeBgColor}>Change background color</button> */}
+      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white">
+        <div className="flex justify-center space-x-4">
+          <a
+            href="https://github.com/Korjubzot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <i className="fab fa-github"></i>
+            <span className="sr-only">GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/billy-walker-ab0013278/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300"
+          >
+            <i className="fab fa-linkedin"></i>
+            <span className="sr-only">LinkedIn</span>
+          </a>
+        </div>
+        <p className="mt-4 text-xs">
+          <a
+            href="https://github.com/Korjubzot/pomodoro-timer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300"
+          >
+            Find the code for this project here
+          </a>
+        </p>
+        <p className="mt-4 text-xs">
+          © 2024 William Walker. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }

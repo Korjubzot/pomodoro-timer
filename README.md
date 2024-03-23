@@ -43,6 +43,7 @@ TailwindCSS
 - [] Polish translation support
 - [] Dark mode
 - [] Code cleanup
+- [] Update sounds - clicking noise, ambient/lofi noise during work, etc
 
 ## Licence
 
