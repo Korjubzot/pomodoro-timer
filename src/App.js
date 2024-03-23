@@ -116,7 +116,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: bgColor }}>
-      <h1 className="text-7xl">Pomodoro Timer</h1>
+      <h1 className="text-7xl mt-10 mb-5">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <SessionLengthControl
@@ -131,7 +131,7 @@ function App() {
       />
       <ResetButton reset={reset} />
       {/* <button onClick={changeBgColor}>Change background color</button> */}
-      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white">
+      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <a
             href="https://github.com/Korjubzot"
@@ -152,7 +152,7 @@ function App() {
             <span className="sr-only">LinkedIn</span>
           </a>
         </div>
-        <p className="mt-4 text-xs">
+        <p className="mt-4 text-xs ">
           <a
             href="https://github.com/Korjubzot/pomodoro-timer"
             target="_blank"
