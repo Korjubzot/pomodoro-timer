@@ -1,5 +1,4 @@
 import React from "react";
-import "./timerDisplay.css";
 
 const MINUTE = 60;
 

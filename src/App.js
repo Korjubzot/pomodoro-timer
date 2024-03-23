@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-// TODO refactor all CSS into TailwindCSS
-
 // Components
 import TimerDisplay from "./components/TimerDisplay/timerDisplay";
 import StartStopButton from "./components/StartStopButton/startStopButton";
@@ -99,6 +97,7 @@ function App() {
   }
 
   function reset() {
+    setBgColor("#BA4949");
     console.log("resetSession");
     setIsRunning(false);
     setIsBreak(false);
@@ -107,11 +106,11 @@ function App() {
   }
 
   function changeBgColor() {
-    setBgColor(
-      (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
-      // when page started or session running, change to red (BA4949)
-      // when break running, change to blue (38858A)
-    );
+    setBgColor((prevColor) => {
+      const newColor = prevColor === "#BA4949" ? "#38858A" : "#BA4949";
+      document.body.style.backgroundColor = newColor;
+      return newColor;
+    });
   }
 
   return (
@@ -130,7 +129,7 @@ function App() {
         incrementBreak={incrementBreak}
       />
       <ResetButton reset={reset} />
-      <button onClick={changeBgColor}>Change background color</button>
+      {/* <button onClick={changeBgColor}>Change background color</button> */}
     </div>
   );
 }
