@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+// TODO refactor all CSS into TailwindCSS
+
 // Components
 import TimerDisplay from "./components/TimerDisplay/timerDisplay";
 import StartStopButton from "./components/StartStopButton/startStopButton";
