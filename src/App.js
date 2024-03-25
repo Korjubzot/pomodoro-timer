@@ -36,30 +36,24 @@ function App() {
     }
     if (sessionLength === 0 && !isBreak) {
       clearInterval(interval);
-      console.log("Session ended");
       changeBgColor();
       setIsBreak(true);
     } else if (breakLength === 0 && isBreak) {
       clearInterval(interval);
-      console.log("Break ended");
       changeBgColor();
       setIsBreak(false);
       setSessionLength(SESSION_LENGTH);
       setBreakLength(BREAK_LENGTH);
     } else if (!isRunning) {
       clearInterval(interval);
-      console.log("Timer stopped");
     }
     return () => clearInterval(interval);
   }, [isRunning, sessionLength, breakLength, isBreak]);
 
   function startStop() {
-    console.log("toggleRunning");
     setIsRunning(!isRunning);
     changeBgColor();
   }
-
-  // TODO - refactor increment/decrement functions into one function
 
   function adjustLength(type, operation) {
     const setter = type === "session" ? setSessionLength : setBreakLength;
@@ -70,15 +64,12 @@ function App() {
       let newLength;
       if (operation === "increment") {
         if (prevLength < 15000) {
-          console.log(`${type} incremented`);
           newLength = prevLength + 60;
         } else {
-          console.log(`${type} maximum length reached`);
           newLength = prevLength;
         }
       } else if (operation === "decrement") {
         newLength = Math.max(prevLength - 60, 0);
-        console.log(`${type} decremented`);
       }
       return newLength;
     });
@@ -86,7 +77,6 @@ function App() {
 
   function reset() {
     setBgColor("#BA4949");
-    console.log("resetSession");
     setIsRunning(false);
     setIsBreak(false);
     setSessionLength(SESSION_LENGTH);
@@ -118,7 +108,6 @@ function App() {
       />
       <ResetButton reset={reset} />
       <br></br>
-      <MusicPlayer />
       <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <a
