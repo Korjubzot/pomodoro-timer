@@ -40,8 +40,8 @@ TailwindCSS
 ## Roadmap
 
 - [x] Update styling
-- [] Polish translation support
-- [] Dark mode
+- [ ] Polish translation support
+- [ ] Dark mode
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
 - [ ] Add a basic music player to play lofi music 
