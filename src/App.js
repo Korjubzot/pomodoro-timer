@@ -8,6 +8,7 @@ import StartStopButton from "./components/StartStopButton/startStopButton";
 import SessionLengthControl from "./components/SessionLengthControl/sessionLengthControl";
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -59,41 +60,27 @@ function App() {
   }
 
   // TODO - refactor increment/decrement functions into one function
-  // TODO - add a clicking sound when buttons are clicked
 
-  function decrementSession() {
-    setSessionLength((prevSessionLength) =>
-      Math.max(prevSessionLength - 60, 0)
-    );
-    console.log("decrement session");
-  }
+  function adjustLength(type, operation) {
+    const setter = type === "session" ? setSessionLength : setBreakLength;
+    // eslint-disable-next-line no-unused-vars
+    const prevLength = type === "session" ? sessionLength : breakLength;
 
-  function incrementSession() {
-    setSessionLength((prevSessionLength) => {
-      if (prevSessionLength < 15000) {
-        console.log("session incremented");
-        return prevSessionLength + 60;
-      } else {
-        console.log("maximum session length reached");
-        return prevSessionLength;
+    setter((prevLength) => {
+      let newLength;
+      if (operation === "increment") {
+        if (prevLength < 15000) {
+          console.log(`${type} incremented`);
+          newLength = prevLength + 60;
+        } else {
+          console.log(`${type} maximum length reached`);
+          newLength = prevLength;
+        }
+      } else if (operation === "decrement") {
+        newLength = Math.max(prevLength - 60, 0);
+        console.log(`${type} decremented`);
       }
-    });
-  }
-
-  function decrementBreak() {
-    setBreakLength((prevBreakLength) => Math.max(prevBreakLength - 60, 0));
-    console.log("decrementBreak");
-  }
-
-  function incrementBreak() {
-    setBreakLength((prevBreakLength) => {
-      if (prevBreakLength < 15000) {
-        console.log("break incremented");
-        return prevBreakLength + 60;
-      } else {
-        console.log("maximum break length reached");
-        return prevBreakLength;
-      }
+      return newLength;
     });
   }
 
@@ -120,17 +107,18 @@ function App() {
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <SessionLengthControl
-        decrementSession={decrementSession}
+        decrementSession={() => adjustLength("session", "decrement")}
         sessionLength={sessionLength}
-        incrementSession={incrementSession}
+        incrementSession={() => adjustLength("session", "increment")}
       />
       <BreakLengthControl
-        decrementBreak={decrementBreak}
+        decrementBreak={() => adjustLength("break", "decrement")}
         breakLength={breakLength}
-        incrementBreak={incrementBreak}
+        incrementBreak={() => adjustLength("break", "increment")}
       />
       <ResetButton reset={reset} />
-      {/* <button onClick={changeBgColor}>Change background color</button> */}
+      <br></br>
+      <MusicPlayer />
       <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <a
@@ -150,6 +138,14 @@ function App() {
           >
             <i className="fab fa-linkedin"></i>
             <span className="sr-only">LinkedIn</span>
+          </a>
+          <a
+            href="mailto: walkerbilly1997@gmail.com"
+            className="hover:text-gray-300"
+          >
+            {" "}
+            <i class="fa-solid fa-envelope"></i>
+            <span className="sr-only">Email</span>
           </a>
         </div>
         <p className="mt-4 text-xs ">
