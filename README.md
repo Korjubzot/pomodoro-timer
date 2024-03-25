@@ -39,11 +39,12 @@ TailwindCSS
 
 ## Roadmap
 
-- [] Update styling
+- [x] Update styling
 - [] Polish translation support
 - [] Dark mode
-- [] Code cleanup
-- [] Update sounds - clicking noise, ambient/lofi noise during work, etc
+- [x] Code cleanup
+- [x] Update sounds - clicking noise for buttons
+- [ ] Add a basic music player to play lofi music 
 
 ## Licence
 
