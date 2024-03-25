@@ -8,6 +8,7 @@ import StartStopButton from "./components/StartStopButton/startStopButton";
 import SessionLengthControl from "./components/SessionLengthControl/sessionLengthControl";
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -107,6 +108,7 @@ function App() {
       />
       <ResetButton reset={reset} />
       <br></br>
+      <MusicPlayer />
       <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <a
