@@ -2,7 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: { rounded: ['"Arial Rounded"', "sans-serif"] },
+    },
   },
   plugins: [],
 };
