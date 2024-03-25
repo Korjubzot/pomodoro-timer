@@ -8,7 +8,6 @@ import StartStopButton from "./components/StartStopButton/startStopButton";
 import SessionLengthControl from "./components/SessionLengthControl/sessionLengthControl";
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
-import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -133,7 +132,7 @@ function App() {
             className="hover:text-gray-300"
           >
             {" "}
-            <i class="fa-solid fa-envelope"></i>
+            <i className="fa-solid fa-envelope"></i>
             <span className="sr-only">Email</span>
           </a>
         </div>
