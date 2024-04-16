@@ -41,6 +41,7 @@ TailwindCSS
 
 - [x] Update styling
 - [ ] Polish translation support
+- [ ] Mobile styling improvement
 - [ ] Dark mode
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
