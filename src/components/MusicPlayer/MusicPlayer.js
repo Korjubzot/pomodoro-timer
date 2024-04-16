@@ -35,11 +35,13 @@ function MusicPlayer() {
 
   function trackForwardHandler() {
     console.log("Track forward");
+    stop();
     setCurrentSongIndex((currentSongIndex + 1) % songs.length);
   }
 
   function trackBackwardHandler() {
     console.log("Track backward");
+    stop();
     setCurrentSongIndex((currentSongIndex - 1) % songs.length);
   }
 
@@ -49,6 +51,10 @@ function MusicPlayer() {
   }
   return (
     <div>
+      <div>
+        <h1 className="text-center">Music Player</h1>
+        <h2 className="text-center">Now Playing: {songs[currentSongIndex]}</h2>
+      </div>
       <div className="flex flex-row justify-center">
         <button className="btn" onClick={trackBackwardHandler}>
           Backward
