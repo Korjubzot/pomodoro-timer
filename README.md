@@ -44,7 +44,7 @@ TailwindCSS
 - [ ] Dark mode
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
-- [ ] Add a basic music player to play lofi music 
+- [ ] IN PROGRESS: Add a basic music player to play lofi music
 
 ## Licence
 

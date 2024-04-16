@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
+import { Howl, Howler } from "howler";
+// TODO migrate this component to HowlerJS for improved usability
 
 import song1 from "../../assets/music/song1.mp3";
 import song2 from "../../assets/music/song2.mp3";
@@ -42,7 +44,7 @@ function MusicPlayer() {
   function trackBackwardHandler() {
     console.log("Track backward");
     stop();
-    setCurrentSongIndex((currentSongIndex - 1) % songs.length);
+    setCurrentSongIndex((currentSongIndex - 1 + songs.length) % songs.length);
   }
 
   function playPauseHandler() {
