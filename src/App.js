@@ -19,7 +19,6 @@ function App() {
   const [breakLength, setBreakLength] = useState(BREAK_LENGTH);
   const [isRunning, setIsRunning] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
-  const [bgColor, setBgColor] = useState("#BA4949");
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // TODO merge this into the seperate timer component
@@ -37,11 +36,11 @@ function App() {
     }
     if (sessionLength === 0 && !isBreak) {
       clearInterval(interval);
-      changeBgColor();
+      // changeBgColor();
       setIsBreak(true);
     } else if (breakLength === 0 && isBreak) {
       clearInterval(interval);
-      changeBgColor();
+      // changeBgColor();
       setIsBreak(false);
       setSessionLength(SESSION_LENGTH);
       setBreakLength(BREAK_LENGTH);
@@ -53,7 +52,7 @@ function App() {
 
   function startStop() {
     setIsRunning(!isRunning);
-    changeBgColor();
+    // changeBgColor();
   }
 
   function adjustLength(type, operation) {
@@ -77,23 +76,28 @@ function App() {
   }
 
   function reset() {
-    setBgColor("#BA4949");
     setIsRunning(false);
     setIsBreak(false);
     setSessionLength(SESSION_LENGTH);
     setBreakLength(BREAK_LENGTH);
   }
 
-  function changeBgColor() {
-    setBgColor(
-      (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
-      // TODO add a third color for long breaks
-      // TODO this will need some reworking to ensure it's working properly with dark mode
-    );
-  }
+  // function changeBgColor() {
+  //   setBgColor(
+  //     (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
+  //     // TODO add a third color for long breaks
+  //     // TODO this will need some reworking to ensure it's working properly with dark mode
+  //   );
+  // }
 
   return (
-    <div className="App" style={{ backgroundColor: bgColor }}>
+    <div
+      className={`App ${
+        isRunning
+          ? "bg-blue-600 dark:bg-blue-900"
+          : "bg-red-600 dark:bg-red-900"
+      }`}
+    >
       <h1 className="text-4xl sm:text-7xl mt-10 mb-5">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
