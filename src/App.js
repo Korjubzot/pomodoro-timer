@@ -86,8 +86,8 @@ function App() {
   function changeBgColor() {
     setBgColor(
       (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
-      // TODO implement a function that will set the background of the HTML to a lighter or darker shade of the current color
-      // This will give an appearance of depth and make the app more visually appealing
+      // TODO add a third color for long breaks
+      // TODO this will need some reworking to ensure it's working properly with dark mode
     );
   }
 
