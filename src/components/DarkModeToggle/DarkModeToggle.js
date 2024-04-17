@@ -6,14 +6,16 @@ function DarkModeToggle() {
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark");
+      document.body.style.backgroundColor = "#333";
     } else {
       document.body.classList.remove("dark");
+      document.body.style.backgroundColor = "#fff";
     }
   }, [isDarkMode]);
 
   return (
     <button className="btn" onClick={() => setIsDarkMode(!isDarkMode)}>
-      Toggle Dark Mode
+      {isDarkMode ? "Dark Mode Off" : "Dark Mode On"}
     </button>
   );
 }

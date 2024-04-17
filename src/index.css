@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply text-black dark:text-white transition-colors duration-500;
+}
+
+i {
+  @apply text-white hover:text-gray-300;
+}
+
 .btn {
-  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded;
+  @apply bg-blue-500 hover:bg-blue-700 dark:bg-blue-800 dark:hover:bg-blue-950 font-bold py-2 px-4 m-2 rounded;
 }
 
 .App {

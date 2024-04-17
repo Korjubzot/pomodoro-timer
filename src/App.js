@@ -93,9 +93,7 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: bgColor }}>
-      <h1 className="text-4xl sm:text-7xl mt-10 mb-5 text-black dark:text-white">
-        Pomodoro Timer
-      </h1>
+      <h1 className="text-4xl sm:text-7xl mt-10 mb-5">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <DarkModeToggle />
@@ -112,12 +110,11 @@ function App() {
       <ResetButton reset={reset} />
       <br></br>
       <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-5 sm:p-6 text-center text-white rounded-b-xl">
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 ">
           <a
             href="https://github.com/Korjubzot"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-300"
           >
             <i className="fab fa-github"></i>
             <span className="sr-only">GitHub</span>
@@ -126,21 +123,16 @@ function App() {
             href="https://www.linkedin.com/in/billy-walker-ab0013278/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-300"
           >
             <i className="fab fa-linkedin"></i>
             <span className="sr-only">LinkedIn</span>
           </a>
-          <a
-            href="mailto: walkerbilly1997@gmail.com"
-            className="hover:text-gray-300"
-          >
-            {" "}
+          <a href="mailto: walkerbilly1997@gmail.com">
             <i className="fa-solid fa-envelope"></i>
             <span className="sr-only">Email</span>
           </a>
         </div>
-        <p className="mt-4 text-xs ">
+        <p className="mt-4 text-xs">
           <a
             href="https://github.com/Korjubzot/pomodoro-timer"
             target="_blank"
@@ -150,7 +142,7 @@ function App() {
             Find the code for this project here
           </a>
         </p>
-        <p className="mt-4 text-xs">
+        <p className="mt-4 text-xs text-white">
           © 2024 William Walker. All rights reserved.
         </p>
       </footer>
