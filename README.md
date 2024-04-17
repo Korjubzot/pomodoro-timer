@@ -41,7 +41,9 @@ TailwindCSS
 
 - [x] Update styling
 - [ ] Polish translation support
-- [ ] IN PROGRESS: Dark mode
+- [x] Dark mode
+- [ ] Improve colour scheme
+- [ ] Additional themes
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
 - [ ] IN PROGRESS: Add a basic music player to play lofi music

@@ -36,11 +36,9 @@ function App() {
     }
     if (sessionLength === 0 && !isBreak) {
       clearInterval(interval);
-      // changeBgColor();
       setIsBreak(true);
     } else if (breakLength === 0 && isBreak) {
       clearInterval(interval);
-      // changeBgColor();
       setIsBreak(false);
       setSessionLength(SESSION_LENGTH);
       setBreakLength(BREAK_LENGTH);
@@ -52,7 +50,6 @@ function App() {
 
   function startStop() {
     setIsRunning(!isRunning);
-    // changeBgColor();
   }
 
   function adjustLength(type, operation) {
@@ -82,21 +79,15 @@ function App() {
     setBreakLength(BREAK_LENGTH);
   }
 
-  // function changeBgColor() {
-  //   setBgColor(
-  //     (prevColor) => (prevColor === "#BA4949" ? "#38858A" : "#BA4949")
-  //     // TODO add a third color for long breaks
-  //     // TODO this will need some reworking to ensure it's working properly with dark mode
-  //   );
-  // }
-
   return (
     <div
       className={`App ${
         isRunning
-          ? "bg-blue-600 dark:bg-blue-900"
-          : "bg-red-600 dark:bg-red-900"
+          ? "bg-blue-400 dark:bg-blue-900"
+          : "bg-red-400 dark:bg-red-900"
       }`}
+      // TODO colours really need to be improved, light mode is quite the eyesore
+      // Too vibrant and not enough contrast?
     >
       <h1 className="text-4xl sm:text-7xl mt-10 mb-5">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
