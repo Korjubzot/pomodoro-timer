@@ -20,6 +20,7 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [bgColor, setBgColor] = useState("#BA4949");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // TODO merge this into the seperate timer component
 
@@ -96,7 +97,7 @@ function App() {
       <h1 className="text-4xl sm:text-7xl mt-10 mb-5">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
-      <DarkModeToggle />
+      <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <SessionLengthControl
         decrementSession={() => adjustLength("session", "decrement")}
         sessionLength={sessionLength}
