@@ -85,7 +85,7 @@ function App() {
         isRunning
           ? "bg-blue-400 dark:bg-blue-900"
           : "bg-red-400 dark:bg-red-900"
-      } flex flex-col items-center  dark:bg-gray-900 dark:text-white`}
+      } flex flex-col items-center `}
       // TODO colours really need to be improved, light mode is quite the eyesore
       // Too vibrant and not enough contrast?
     >
