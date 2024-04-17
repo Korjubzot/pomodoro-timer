@@ -41,10 +41,10 @@ TailwindCSS
 
 - [x] Update styling
 - [ ] Polish translation support
-- [ ] Dark mode
+- [ ] IN PROGRESS: Dark mode
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
-- [ ] IN PROGRESS: Add a basic music player to play lofi music 
+- [ ] IN PROGRESS: Add a basic music player to play lofi music
 
 ## Licence
 
