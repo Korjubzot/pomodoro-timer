@@ -4,8 +4,8 @@ const MINUTE = 60;
 
 function TimerDisplay({ sessionLength, breakLength }) {
   return (
-    <div className="text-2xl">
-      <h1 className="text-2xl">
+    <div className="text-2xl text-black dark:text-white">
+      <h1>
         Session Length {Math.floor(sessionLength / MINUTE)}:
         {sessionLength % MINUTE < 10
           ? "0" + (sessionLength % MINUTE)

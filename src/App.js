@@ -8,6 +8,7 @@ import StartStopButton from "./components/StartStopButton/startStopButton";
 import SessionLengthControl from "./components/SessionLengthControl/sessionLengthControl";
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
+import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -92,9 +93,12 @@ function App() {
 
   return (
     <div className="App" style={{ backgroundColor: bgColor }}>
-      <h1 className="text-7xl mt-10 mb-5">Pomodoro Timer</h1>
+      <h1 className="text-4xl sm:text-7xl mt-10 mb-5 text-black dark:text-white">
+        Pomodoro Timer
+      </h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <StartStopButton onClick={startStop} isRunning={isRunning} />
+      <DarkModeToggle />
       <SessionLengthControl
         decrementSession={() => adjustLength("session", "decrement")}
         sessionLength={sessionLength}
@@ -107,7 +111,7 @@ function App() {
       />
       <ResetButton reset={reset} />
       <br></br>
-      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-6 text-center text-white rounded-b-xl">
+      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-5 sm:p-6 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <a
             href="https://github.com/Korjubzot"
