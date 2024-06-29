@@ -11,6 +11,10 @@
 # production
 /build
 
+# music folder
+
+/src/assets/music
+
 # misc
 .DS_Store
 .env.local

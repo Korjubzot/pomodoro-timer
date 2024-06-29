@@ -9,6 +9,7 @@ import SessionLengthControl from "./components/SessionLengthControl/sessionLengt
 import BreakLengthControl from "./components/BreakLengthControl/breakLengthControl";
 import ResetButton from "./components/ResetButton/resetButton";
 import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
+import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -83,17 +84,18 @@ function App() {
     <div
       className={`App ${
         isRunning
-          ? "bg-blue-400 dark:bg-blue-900"
-          : "bg-red-400 dark:bg-red-900"
+          ? "bg-blue-500 dark:bg-blue-800"
+          : "bg-red-500 dark:bg-red-800"
       } flex flex-col items-center `}
-      // TODO colours really need to be improved, light mode is quite the eyesore
-      // Too vibrant and not enough contrast?
     >
-      <h1 className="text-4xl sm:text-7xl mt-10 mb-5">Pomodoro Timer</h1>
+      <h1 className="text-4xl sm:text-7xl mt-6 mb-2">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <br></br>
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      {/* Toggled out Dark Mode for now while I clean up the merge */}
+      {/* TODO fix various issues with mobile sizing on buttons
+      probably just a simple fix for adjusting sizes on mobile screens */}
       <SessionLengthControl
         decrementSession={() => adjustLength("session", "decrement")}
         sessionLength={sessionLength}
@@ -105,8 +107,8 @@ function App() {
         incrementBreak={() => adjustLength("break", "increment")}
       />
       <ResetButton reset={reset} />
-      <br></br>
-      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-5 sm:p-6 text-center text-white rounded-b-xl">
+      <MusicPlayer />
+      <footer className="fixed inset-x-0 bottom-0 bg-gray-800 p-5 sm:p-4 text-center text-white rounded-b-xl">
         <div className="flex justify-center space-x-4 ">
           <a
             href="https://github.com/Korjubzot"
@@ -117,7 +119,7 @@ function App() {
             <span className="sr-only">GitHub</span>
           </a>
           <a
-            href="https://www.linkedin.com/in/billy-walker-ab0013278/"
+            href="https://www.linkedin.com/in/william-walker-ab0013278/"
             target="_blank"
             rel="noopener noreferrer"
           >
