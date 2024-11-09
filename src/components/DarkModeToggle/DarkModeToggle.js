@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 // TODO add an option to toggle based on sunrise/sunset
-// Possibly link to user location to get sunrise/sunset times?
-// Either from IP address, or from user input
+// NPM has a daynight package that might be useful here
 
 function DarkModeToggle({ isDarkMode, setIsDarkMode }) {
   useEffect(() => {

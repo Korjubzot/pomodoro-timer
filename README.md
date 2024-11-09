@@ -4,7 +4,7 @@ This project is a classic [Pomodoro Timer](https://en.wikipedia.org/wiki/Pomodor
 
 ## About
 
-This project was built to better understand one of the most useful tools I've used while studying programming - the humble tomato! The 25 minute sessions were fantastic to break up blocks of study into managable chunks, and it was also a fun opportunity to get to grips with the basics of Tailwind, and broader CSS principles as well.
+This project was built to better understand one of the most useful tools I've used while studying programming and languages - the humble tomato! The 25 minute sessions were fantastic to break up blocks of study into managable chunks, and it was also a fun opportunity to get to grips with the basics of Tailwind, and broader CSS principles as well.
 
 ## Installation
 
@@ -40,13 +40,14 @@ TailwindCSS
 ## Roadmap
 
 - [x] Update styling
-- [ ] Polish translation support
+- [ ] IN PROGRESS - Polish translation support
 - [x] Dark mode
-- [ ] Improve colour scheme
+- [ ] IN PROGRESS: Improve colour scheme
 - [ ] Additional themes
+- [ ] IN PROGRESS: Improve mobile styling and layout
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
-- [ ] IN PROGRESS: Add a basic music player to play lofi music
+- [x] Add a basic music player to play lofi music
 
 ## Licence
 
@@ -54,4 +55,4 @@ Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## Contact
 
-Contact me at korjubzot@gmail.com, or at my [LinkedIn](https://www.linkedin.com/in/billy-walker-ab0013278/).
+Contact me at korjubzot@gmail.com, or at my [LinkedIn](https://www.linkedin.com/in/william-walker-ab0013278/).
