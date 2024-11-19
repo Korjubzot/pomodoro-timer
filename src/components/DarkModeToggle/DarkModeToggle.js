@@ -6,10 +6,10 @@ function DarkModeToggle({ isDarkMode, setIsDarkMode }) {
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark");
-      document.body.style.backgroundColor = "#333";
+      document.body.style.backgroundColor = "#363732";
     } else {
       document.body.classList.remove("dark");
-      document.body.style.backgroundColor = "#fff";
+      document.body.style.backgroundColor = "#CECFC9";
     }
   }, [isDarkMode]);
 
