@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
+import { useTranslation } from "react-i18next";
 // TODO migrate this component to HowlerJS for improved usability
 
+import "../../i18n";
+import LanguageSwitcher from "../languageSwitcher/languageSwitcher";
+
 function MusicPlayer() {
+  const { t } = useTranslation();
   const songs = [
     { src: require("../../assets/music/song1.mp3"), title: "Song 1" },
     { src: require("../../assets/music/song2.mp3"), title: "Song 2" },
@@ -49,6 +54,8 @@ function MusicPlayer() {
     <div>
       <div>
         <h1 className="text-center">Music Player</h1>
+        <h1>{t("test")}</h1>
+        <LanguageSwitcher />
         <h2 className="text-center">
           Now Playing: {songs[currentSongIndex].title}
         </h2>

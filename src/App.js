@@ -93,7 +93,6 @@ function App() {
       <br></br>
       <StartStopButton onClick={startStop} isRunning={isRunning} />
       <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      {/* Toggled out Dark Mode for now while I clean up the merge */}
       {/* TODO fix various issues with mobile sizing on buttons
       probably just a simple fix for adjusting sizes on mobile screens */}
       <SessionLengthControl
