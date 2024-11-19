@@ -1,4 +1,12 @@
 {
   "test": "testowac polska",
-  "backward": "wstecz"
+  "backward": "Wstecz",
+  "forward": "Naprzód",
+  "play": "Odtwarzaj",
+  "pause": "Pauza",
+  "start": "Start",
+  "darkMode": {
+    "on": "Lampa",
+    "off": "Bez lampa"
+  }
 }

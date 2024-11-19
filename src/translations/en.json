@@ -1,4 +1,12 @@
 {
   "test": "testing english",
-  "backward": "backward"
+  "backward": "Backward",
+  "forward": "Forward",
+  "play": "Play",
+  "pause": "Pause",
+  "start": "Start",
+  "darkMode": {
+    "on": "Dark Mode On",
+    "off": "Dark Mode Off"
+  }
 }

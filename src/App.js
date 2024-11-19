@@ -10,6 +10,7 @@ import BreakLengthControl from "./components/BreakLengthControl/breakLengthContr
 import ResetButton from "./components/ResetButton/resetButton";
 import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import LanguageSwitcher from "./components/languageSwitcher/languageSwitcher";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -92,7 +93,11 @@ function App() {
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <br></br>
       <StartStopButton onClick={startStop} isRunning={isRunning} />
-      <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      {/* TODO fix the alignment of these two buttons so they're properly centered */}
+      <div className="inline-flex">
+        <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <LanguageSwitcher />
+      </div>
       {/* TODO fix various issues with mobile sizing on buttons
       probably just a simple fix for adjusting sizes on mobile screens */}
       <SessionLengthControl

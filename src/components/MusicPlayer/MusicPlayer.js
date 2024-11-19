@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 // TODO migrate this component to HowlerJS for improved usability
 
 import "../../i18n";
-import LanguageSwitcher from "../languageSwitcher/languageSwitcher";
 
 function MusicPlayer() {
   const { t } = useTranslation();
@@ -20,7 +19,8 @@ function MusicPlayer() {
     { src: require("../../assets/music/song9.mp3"), title: "Song 9" },
   ];
   // I'd like to think that a professional would never do this, but I know for a fact
-  // that Team Fortress 2 does
+  // that the tf2 dev team did.
+  // look ma, just like the pros do!
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -54,21 +54,19 @@ function MusicPlayer() {
     <div>
       <div>
         <h1 className="text-center">Music Player</h1>
-        <h1>{t("test")}</h1>
-        <LanguageSwitcher />
         <h2 className="text-center">
           Now Playing: {songs[currentSongIndex].title}
         </h2>
       </div>
       <div className="flex flex-row justify-center">
         <button className="btn" onClick={trackBackwardHandler}>
-          Backward
+          {t("backward")}
         </button>
         <button className="btn" onClick={playPauseHandler}>
-          {isPlaying ? "Pause" : "Play"}
+          {t(isPlaying ? "pause" : "play")}
         </button>
         <button className="btn" onClick={trackForwardHandler}>
-          Forward
+          {t("forward")}
         </button>
       </div>
     </div>
