@@ -1,12 +1,32 @@
 {
   "test": "testowac polska",
-  "backward": "Wstecz",
-  "forward": "Naprzód",
-  "play": "Odtwarzaj",
-  "pause": "Pauza",
-  "start": "Start",
   "darkMode": {
     "on": "Lampa",
     "off": "Bez lampa"
+  },
+  "sessionControls": {
+    "startSession": "Zaczynać",
+    "stopSession": "Przestań",
+    "incrementSession": "+1 Minuta (Sesja)",
+    "decrementSession": "-1 Minuta (Sesja)",
+    "incrementBreak": "+1 Minuta (Przerwa)",
+    "decrementBreak": "-1 Minuta (Przerwa)",
+    "resetSession": "Nastawić"
+  },
+  "timer": {
+    "sessionLength": "Długość Sesja",
+    "breakLength": "Długość Przerwa"
+  },
+  "musicPlayer": {
+    "play": "Odtwarzaj",
+    "pause": "Pauza",
+    "skipForward": "Naprzód",
+    "skipBackward": "Wstecz",
+    "currentTrack": "Aktualnie odtwarzane: ",
+    "componentName": "Odtwarzacz muzyki"
+  },
+  "footer": {
+    "repoLink": "Znajdź kod dla tego projektu tutaj",
+    "copyright": "© 2024 William Walker. Wszelkie prawa zastrzeżone."
   }
 }

@@ -35,38 +35,35 @@ function MusicPlayer() {
   }, [isPlaying, play, stop]);
 
   function trackForwardHandler() {
-    console.log("Track forward");
     stop();
     setCurrentSongIndex((currentSongIndex + 1) % songs.length);
   }
 
   function trackBackwardHandler() {
-    console.log("Track backward");
     stop();
     setCurrentSongIndex((currentSongIndex - 1 + songs.length) % songs.length);
   }
 
   function playPauseHandler() {
-    console.log(isPlaying ? "Pause" : "Play");
     setIsPlaying(!isPlaying);
   }
   return (
     <div>
       <div>
-        <h1 className="text-center">Music Player</h1>
+        <h1 className="text-center">{t("musicPlayer.componentName")}</h1>
         <h2 className="text-center">
-          Now Playing: {songs[currentSongIndex].title}
+          {t("musicPlayer.currentTrack")} {songs[currentSongIndex].title}
         </h2>
       </div>
       <div className="flex flex-row justify-center">
         <button className="btn" onClick={trackBackwardHandler}>
-          {t("backward")}
+          {t("musicPlayer.skipBackward")}
         </button>
         <button className="btn" onClick={playPauseHandler}>
-          {t(isPlaying ? "pause" : "play")}
+          {t(isPlaying ? "musicPlayer.pause" : "musicPlayer.play")}
         </button>
         <button className="btn" onClick={trackForwardHandler}>
-          {t("forward")}
+          {t("musicPlayer.skipForward")}
         </button>
       </div>
     </div>

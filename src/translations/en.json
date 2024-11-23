@@ -1,12 +1,32 @@
 {
   "test": "testing english",
-  "backward": "Backward",
-  "forward": "Forward",
-  "play": "Play",
-  "pause": "Pause",
-  "start": "Start",
   "darkMode": {
     "on": "Dark Mode On",
     "off": "Dark Mode Off"
+  },
+  "sessionControls": {
+    "startSession": "Start",
+    "stopSession": "Stop",
+    "incrementSession": "+1 Minute (Session)",
+    "decrementSession": "-1 Minute (Session)",
+    "incrementBreak": "+1 Minute (Break)",
+    "decrementBreak": "-1 Minute (Break)",
+    "resetSession": "Reset"
+  },
+  "timer": {
+    "sessionLength": "Session Length",
+    "breakLength": "Break Length"
+  },
+  "musicPlayer": {
+    "play": "Play",
+    "pause": "Pause",
+    "skipForward": "Forward",
+    "skipBackward": "Backward",
+    "currentTrack": "Now playing: ",
+    "componentName": "Music player"
+  },
+  "footer": {
+    "repoLink": "Find the code for this project here",
+    "copyright": "© 2024 William Walker. All rights reserved."
   }
 }

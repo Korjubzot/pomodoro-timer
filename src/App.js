@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+// Translation handler
+import { useTranslation } from "react-i18next";
+import "./i18n";
+
 // Components
 import TimerDisplay from "./components/TimerDisplay/timerDisplay";
 import StartStopButton from "./components/StartStopButton/startStopButton";
@@ -24,6 +28,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // TODO merge this into the seperate timer component
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     let interval = null;
@@ -142,12 +148,10 @@ function App() {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            Find the code for this project here
+            {t("footer.repoLink")}
           </a>
         </p>
-        <p className="mt-4 text-xs text-white">
-          © 2024 William Walker. All rights reserved.
-        </p>
+        <p className="mt-4 text-xs text-white">{t("footer.copyright")}</p>
       </footer>
     </div>
   );
