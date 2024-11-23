@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
+import { useTranslation } from "react-i18next";
 // TODO migrate this component to HowlerJS for improved usability
 
+import "../../i18n";
+
 function MusicPlayer() {
+  const { t } = useTranslation();
   const songs = [
     { src: require("../../assets/music/song1.mp3"), title: "Song 1" },
     { src: require("../../assets/music/song2.mp3"), title: "Song 2" },
@@ -15,7 +19,8 @@ function MusicPlayer() {
     { src: require("../../assets/music/song9.mp3"), title: "Song 9" },
   ];
   // I'd like to think that a professional would never do this, but I know for a fact
-  // that Team Fortress 2 does
+  // that the tf2 dev team did.
+  // look ma, just like the pros do!
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,38 +35,35 @@ function MusicPlayer() {
   }, [isPlaying, play, stop]);
 
   function trackForwardHandler() {
-    console.log("Track forward");
     stop();
     setCurrentSongIndex((currentSongIndex + 1) % songs.length);
   }
 
   function trackBackwardHandler() {
-    console.log("Track backward");
     stop();
     setCurrentSongIndex((currentSongIndex - 1 + songs.length) % songs.length);
   }
 
   function playPauseHandler() {
-    console.log(isPlaying ? "Pause" : "Play");
     setIsPlaying(!isPlaying);
   }
   return (
     <div>
       <div>
-        <h1 className="text-center">Music Player</h1>
+        <h1 className="text-center">{t("musicPlayer.componentName")}</h1>
         <h2 className="text-center">
-          Now Playing: {songs[currentSongIndex].title}
+          {t("musicPlayer.currentTrack")} {songs[currentSongIndex].title}
         </h2>
       </div>
       <div className="flex flex-row justify-center">
         <button className="btn" onClick={trackBackwardHandler}>
-          Backward
+          {t("musicPlayer.skipBackward")}
         </button>
         <button className="btn" onClick={playPauseHandler}>
-          {isPlaying ? "Pause" : "Play"}
+          {t(isPlaying ? "musicPlayer.pause" : "musicPlayer.play")}
         </button>
         <button className="btn" onClick={trackForwardHandler}>
-          Forward
+          {t("musicPlayer.skipForward")}
         </button>
       </div>
     </div>

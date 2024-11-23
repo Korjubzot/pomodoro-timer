@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+// Translation handler
+import { useTranslation } from "react-i18next";
+import "./i18n";
+
 // Components
 import TimerDisplay from "./components/TimerDisplay/timerDisplay";
 import StartStopButton from "./components/StartStopButton/startStopButton";
@@ -10,6 +14,7 @@ import BreakLengthControl from "./components/BreakLengthControl/breakLengthContr
 import ResetButton from "./components/ResetButton/resetButton";
 import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
+import LanguageSwitcher from "./components/languageSwitcher/languageSwitcher";
 
 // Constants
 const SESSION_LENGTH = 25 * 60;
@@ -23,6 +28,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   // TODO merge this into the seperate timer component
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     let interval = null;
@@ -83,19 +90,21 @@ function App() {
   return (
     <div
       className={`App ${
-        isRunning
-          ? "moonstone dark:klein-blue"
-          : "bg-red-500 dark:chestnut"
-          // : "jasper dark:chestnut"
-          // TODO fix this
-          // These are custom colours in Tailwind, but the red options aren't loading right
+        isRunning ? "moonstone dark:klein-blue" : "bg-red-500 dark:chestnut"
+        // : "jasper dark:chestnut"
+        // TODO fix this
+        // These are custom colours in Tailwind, but the red options aren't loading right
       } flex flex-col items-center `}
     >
       <h1 className="text-4xl sm:text-7xl mt-6 mb-2">Pomodoro Timer</h1>
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <br></br>
       <StartStopButton onClick={startStop} isRunning={isRunning} />
-      <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      {/* TODO fix the alignment of these two buttons so they're properly centered */}
+      <div className="inline-flex">
+        <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        <LanguageSwitcher />
+      </div>
       {/* TODO fix various issues with mobile sizing on buttons
       probably just a simple fix for adjusting sizes on mobile screens */}
       <SessionLengthControl
@@ -140,12 +149,10 @@ function App() {
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300"
           >
-            Find the code for this project here
+            {t("footer.repoLink")}
           </a>
         </p>
-        <p className="mt-4 text-xs text-white">
-          © 2024 William Walker. All rights reserved.
-        </p>
+        <p className="mt-4 text-xs text-white">{t("footer.copyright")}</p>
       </footer>
     </div>
   );
