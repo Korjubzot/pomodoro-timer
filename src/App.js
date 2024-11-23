@@ -100,8 +100,7 @@ function App() {
       <TimerDisplay sessionLength={sessionLength} breakLength={breakLength} />
       <br></br>
       <StartStopButton onClick={startStop} isRunning={isRunning} />
-      {/* TODO fix the alignment of these two buttons so they're properly centered */}
-      <div className="inline-flex">
+      <div className="flex flex-row justify-center items-center">
         <DarkModeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <LanguageSwitcher />
       </div>

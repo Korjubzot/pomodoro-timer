@@ -19,9 +19,11 @@ function DarkModeToggle({ isDarkMode, setIsDarkMode }) {
   }, [isDarkMode]);
 
   return (
-    <button className="btn" onClick={() => setIsDarkMode(!isDarkMode)}>
-      {t(isDarkMode ? "darkMode.off" : "darkMode.on")}
-    </button>
+    <div>
+      <button className="btn" onClick={() => setIsDarkMode(!isDarkMode)}>
+        {t(isDarkMode ? "darkMode.off" : "darkMode.on")}
+      </button>
+    </div>
   );
 }
 
