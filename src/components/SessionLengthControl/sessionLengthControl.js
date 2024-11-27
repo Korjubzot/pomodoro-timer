@@ -1,12 +1,18 @@
 import React from "react";
 import useSound from "use-sound";
 
+// Translation handler
+import { useTranslation } from "react-i18next";
+import "../../i18n";
+
 import click from "../../assets/sounds/click.mp3";
 import click2 from "../../assets/sounds/click2.mp3";
 
 function SessionLengthControl(props) {
   const [clickOne] = useSound(click);
   const [clickTwo] = useSound(click2);
+
+  const { t } = useTranslation();
 
   function decrementSessionWithSound() {
     clickOne();
@@ -21,10 +27,10 @@ function SessionLengthControl(props) {
   return (
     <div>
       <button className="btn" onClick={decrementSessionWithSound}>
-        -1 Minute (Session)
+        {t("sessionControls.decrementSession")}
       </button>
       <button className="btn" onClick={incrementSessionWithSound}>
-        +1 Minute (Session)
+        {t("sessionControls.incrementSession")}
       </button>
     </div>
   );
