@@ -4,7 +4,9 @@ This project is a classic [Pomodoro Timer](https://en.wikipedia.org/wiki/Pomodor
 
 ## About
 
-This project was built to better understand one of the most useful tools I've used while studying programming and languages - the humble tomato! The 25 minute sessions were fantastic to break up blocks of study into managable chunks, and it was also a fun opportunity to get to grips with the basics of Tailwind, and broader CSS principles as well.
+This project was built to better understand one of the most useful tools I've used while studying programming and languages - the humble tomato! The 25 minute sessions were fantastic to break up blocks of study into manageable chunks.
+
+Over time, this project has become a minor testbed for learning the intricacies of CSS and TailwindCSS, and as of late it's my sandbox for improving my skils in mobile/tablet/desktop mutual design.
 
 ## Installation
 
@@ -36,15 +38,16 @@ Click Start to begin the timer. By default, each work session runs for 25 minute
 
 React.js
 TailwindCSS
+HowlerJS
 
 ## Roadmap
 
 - [x] Update styling
-- [ ] IN PROGRESS - Polish translation support
+- [x] Polish translation support
 - [x] Dark mode
 - [ ] IN PROGRESS: Improve colour scheme
-- [ ] Additional themes
-- [ ] IN PROGRESS: Improve mobile styling and layout
+- [ ] Additional colour themes
+- [ ] IN PROGRESS: Revamp styling and layout for improved mobile/tablet support
 - [x] Code cleanup
 - [x] Update sounds - clicking noise for buttons
 - [x] Add a basic music player to play lofi music
