@@ -84,8 +84,8 @@ function App() {
     <div
       className={`App ${
         isRunning
-          ? "bg-blue-500 dark:bg-blue-800"
-          : "bg-red-500 dark:bg-red-800"
+          ? "bg-blue-400 dark:bg-blue-800"
+          : "bg-red-400 dark:bg-red-800"
       } flex flex-col items-center `}
     >
       <h1 className="text-4xl sm:text-7xl mt-6 mb-2">Pomodoro Timer</h1>
